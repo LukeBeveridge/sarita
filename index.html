@@ -260,11 +260,34 @@
       pointer-events:none;
       z-index:999;
     }
+
+    /* Pink fade overlay (hidden by default) */
+    #pinkFade{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 998;              /* below confetti (999), above page */
+      opacity: 0;
+      transition: opacity 2.8s ease;
+      background:
+        radial-gradient(900px 600px at 30% 20%, rgba(255,77,134,.28), transparent 60%),
+        radial-gradient(900px 600px at 80% 40%, rgba(255,149,187,.22), transparent 62%),
+        linear-gradient(135deg, rgba(255,210,226,.22), rgba(255,160,196,.18));
+      filter: saturate(1.08);
+    }
+
+    /* When activated */
+    #pinkFade.on{
+      opacity: 1;
+    }
+
   </style>
 </head>
 
 <body>
   <canvas id="confetti"></canvas>
+  <div id="pinkFade" aria-hidden="true"></div>
+
 
   <header>
     <div class="bar">
@@ -369,7 +392,7 @@
       { date: "14 / 07 / 2025", title: "Sky Garden", desc: "We explored high up on this day, looked effortlessly good while doing it too. Still drooling over the danish you had...", img: "images/14july25-skygarden.jpeg" },
       { date: "18 / 07 / 2025", title: "Egg Throne", desc: "Even in more familiar surroundings, you still managed to have your throne... and look gorgeous while in it.", img: "images/18july25-Peeps.jpeg" },
       { date: "23 / 07 / 2025", title: "Car Trippp!", desc: "This year had a lot more first time experiences with you, I'd class this as our first proper wee car ride together. Where you were of course, a passenger princess", img: "images/23july25-CarTrip.jpeg" },
-      { date: "Today", title: "This wee website", desc: "And many more pages of us to come 💗", img: "" }
+      { date: "Today", title: "This wee website", desc: "And many more pages of us to come 💗", img: "images/londoncheers.jpeg" }
     ];
 
     // =============================
@@ -485,6 +508,9 @@
     yesBtn.addEventListener("click", () => {
       result.innerHTML = "YAYYYYY 💖<br/>Okay now come here. I’m giving you a kiss.";
       startConfetti(220);
+
+      // Gradually make the whole page pinker
+      document.getElementById("pinkFade").classList.add("on");
     });
 
     // =============================
