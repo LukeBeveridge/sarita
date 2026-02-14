@@ -268,7 +268,7 @@
 
   <header>
     <div class="bar">
-      <div class="pill">💗 For <span id="name">My Love</span></div>
+      <div class="pill">💗 For Sarita</div>
       <div class="nav">
         <button data-scroll="#reasons">Reasons</button>
         <button data-scroll="#timeline">Timeline</button>
@@ -280,20 +280,15 @@
   <div class="wrap">
     <section class="hero">
       <div class="card">
-        <h1>Hi <span id="theirName">love</span>, I made this for you 💞</h1>
+        <h1>Hiii my love, I made this for you 💞</h1>
         <p id="intro">
           <!-- EDIT ME -->
           A little pink corner of the internet for my favorite person — with cozy coffee energy, bookish vibes, and a sprinkle of sparkle.
         </p>
 
         <div class="ctaRow">
-          <button class="btn" id="openBtn">Open my Valentine</button>
-          <button class="btn secondary" id="editBtn">Quick personalize</button>
-        </div>
-
-        <p style="opacity:.85;margin-top:12px">
-          Tap <b>Quick personalize</b> to set their name + your note.
-        </p>
+          <button class="btn" id="openBtn">Open my Valentine</button>          
+        </div>        
       </div>
 
       <div class="heartBlob" aria-hidden="true">
@@ -434,18 +429,7 @@
     // =============================
     // PERSONALIZE (quick)
     // =============================
-    const nameEl = document.getElementById("name");
-    const theirNameEl = document.getElementById("theirName");
-    const introEl = document.getElementById("intro");
-
-    document.getElementById("editBtn").addEventListener("click", () => {
-      const n = prompt("Their name (or nickname)?", theirNameEl.textContent) || theirNameEl.textContent;
-      theirNameEl.textContent = n;
-      nameEl.textContent = n;
-
-      const msg = prompt("Short intro message (one sentence)?", introEl.textContent) || introEl.textContent;
-      introEl.textContent = msg.trim();
-    });
+    
 
     document.getElementById("openBtn").addEventListener("click", () => {
       document.getElementById("reasons").scrollIntoView({ behavior: "smooth" });
